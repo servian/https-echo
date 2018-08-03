@@ -3,10 +3,12 @@ package main
 import (
 	"log"
 	"net/http"
+	"strings"
 )
 
 func redirect(w http.ResponseWriter, req *http.Request) {
-	target := "https://" + req.Host + req.URL.Path
+	hostname := strings.Split(req.Host, ":")
+	target := "https://" + hostname[0] + req.URL.Path
 	if len(req.URL.RawQuery) > 0 {
 		target += "?" + req.URL.RawQuery
 	}
