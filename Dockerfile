@@ -8,7 +8,7 @@ WORKDIR /go/src/github.com/vibrato/https-echo/
 
 COPY . .
 
-ARG LD_FLAGS=""
+ARG LD_FLAGS="-s -w"
 ENV LD_FLAGS="${LD_FLAGS}"
 
 RUN \
