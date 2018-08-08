@@ -35,5 +35,9 @@ func main() {
 		os.Exit(0)
 	}
 
-	http.ListenAndServe(*httpAddr, http.HandlerFunc(redirect))
+	log.Printf("Listening for incoming requests on TCP port '%s'...", *httpAddr)
+	err := http.ListenAndServe(*httpAddr, http.HandlerFunc(redirect))
+	if err != nil {
+		log.Fatal(err)
+	}
 }
