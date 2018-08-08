@@ -35,5 +35,6 @@ func main() {
 		os.Exit(0)
 	}
 
+	log.Printf("Listening for incoming requests on TCP port '%s'...", *httpAddr)
 	http.ListenAndServe(*httpAddr, http.HandlerFunc(redirect))
 }
