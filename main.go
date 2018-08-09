@@ -13,12 +13,17 @@ const Version = "0.0.2"
 
 var (
 	httpAddr = flag.String("listen", ":80", "Listen address")
+	destPort = flag.Int("port", -1, "Destination port")
 	versDisp = flag.Bool("version", false, "Display version")
 )
 
 func redirect(w http.ResponseWriter, req *http.Request) {
 	hostname := strings.Split(req.Host, ":")
-	target := "https://" + hostname[0] + req.URL.Path
+	dps := ""
+	if *destPort > 0 {
+		dps = fmt.Sprintf(":%d", *destPort)
+	}
+	target := "https://" + hostname[0] + dps + req.URL.Path
 	if len(req.URL.RawQuery) > 0 {
 		target += "?" + req.URL.RawQuery
 	}
