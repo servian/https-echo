@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-const Version = "0.0.2"
+const Version = "0.0.3"
 
 var (
 	httpAddr = flag.String("listen", ":80", "Listen address")
