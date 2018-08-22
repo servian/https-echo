@@ -1,0 +1,17 @@
+[Unit]
+Description=HTTPS-Echo, Redirects
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+User=fabio
+Group=fabio
+Restart=on-failure
+ExecStart=/path/to/https-echo -listen ":8080"
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGINT
+TimeoutStopSec=30s
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

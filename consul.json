@@ -1,0 +1,13 @@
+{
+  "Name": "https-echo",
+  "Tags": [
+    "urlprefix-:80 proto=tcp",
+    "redirect"
+  ],
+  "Address": "127.0.0.1",
+  "Port": 8080,
+  "Check": {
+    "TCP": "127.0.0.1:8080",
+    "Interval": "10s"
+  }
+}
