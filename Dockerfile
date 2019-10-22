@@ -4,7 +4,7 @@
 FROM golang:alpine AS builder
 LABEL maintainer="Tristan Morgan <tristan@vibrato.com.au>"
 
-WORKDIR /go/src/github.com/vibrato/https-echo/
+WORKDIR /go/src/github.com/servian/https-echo/
 
 COPY . .
 

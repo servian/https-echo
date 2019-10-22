@@ -10,7 +10,10 @@ import (
 )
 
 // Version number constant.
-const Version = "0.0.3"
+const Version = "0.0.4"
+
+// Homepage url.
+const Homepage = "https://github.com/servian/https-echo"
 
 var (
 	httpAddr = flag.String("listen", ":80", "Listen address")
@@ -38,6 +41,7 @@ func main() {
 
 	if *versDisp {
 		fmt.Printf("Version: v%s\n", Version)
+		fmt.Printf("Home Page: %s\n", Homepage)
 		os.Exit(0)
 	}
 
