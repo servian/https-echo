@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -10,7 +11,7 @@ import (
 )
 
 // Version number constant.
-const Version = "0.0.4"
+const Version = "0.0.5"
 
 // Homepage url.
 const Homepage = "https://github.com/servian/https-echo"
@@ -22,6 +23,11 @@ var (
 )
 
 func redirect(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Server", "Https-echo/"+Version+" (+"+Homepage+")")
+	if "/health" == req.URL.Path {
+		io.WriteString(w, "Healthy.\n")
+		return
+	}
 	hostname := strings.Split(req.Host, ":")
 	dps := ""
 	if *destPort > 0 {
