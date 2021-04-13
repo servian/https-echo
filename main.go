@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"runtime"
 	"strings"
 )
 
@@ -46,7 +47,7 @@ func main() {
 	flag.Parse()
 
 	if *versDisp {
-		fmt.Printf("Version: v%s\n", Version)
+		fmt.Printf("Version: v%s %s\n", Version, runtime.Version())
 		fmt.Printf("Home Page: %s\n", Homepage)
 		os.Exit(0)
 	}
