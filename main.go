@@ -38,9 +38,12 @@ func redirect(w http.ResponseWriter, req *http.Request) {
 	if len(req.URL.RawQuery) > 0 {
 		target += "?" + req.URL.RawQuery
 	}
-	log.Printf("redirect to: %s from: %s", target, req.RemoteAddr)
-	http.Redirect(w, req, target,
-		http.StatusTemporaryRedirect)
+	if xff := req.Header.Get("X-Forwarded-For"); xff != "" {
+		log.Printf("redirect to: %s from: %s xff %s", target, req.RemoteAddr, xff)
+	} else {
+		log.Printf("redirect to: %s from: %s", target, req.RemoteAddr)
+	}
+	http.Redirect(w, req, target, http.StatusTemporaryRedirect)
 }
 
 func main() {
