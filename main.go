@@ -12,7 +12,7 @@ import (
 )
 
 // Version number constant.
-const Version = "0.0.5"
+const Version = "0.0.6"
 
 // Homepage url.
 const Homepage = "https://github.com/servian/https-echo"
