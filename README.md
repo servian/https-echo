@@ -4,6 +4,7 @@
 
 [![Docker Image](https://img.shields.io/badge/docker-vibrato%2Fhttps--echo-blue.svg)](https://hub.docker.com/r/vibrato/https-echo/)
 [![Go Report](https://goreportcard.com/badge/github.com/servian/https-echo)](https://goreportcard.com/report/github.com/servian/https-echo)
+[![Release](https://img.shields.io/github/release/servian/https-echo.svg)](https://github.com/servian/https-echo/releases/latest)
 
 This is a tiny Go Web server that listens to HTTP requests and redirects them to HTTPS. Intended to run beside an HTTPS protected website or be used in conjunction with a load-balancer to keep HTTPS Everywhere. It compiles to a less than 10MB and can be used in a "FROM scratch" container.
 

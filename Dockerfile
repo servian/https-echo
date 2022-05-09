@@ -2,7 +2,7 @@
 # Builder
 #
 FROM golang:alpine AS builder
-LABEL maintainer="Tristan Morgan <tristan@vibrato.com.au>"
+LABEL maintainer="Tristan Morgan <tristan.morgan@servian.com>"
 
 WORKDIR /go/src/github.com/servian/https-echo/
 
@@ -21,7 +21,7 @@ RUN \
 # Final
 #
 FROM scratch
-LABEL maintainer="Tristan Morgan <tristan@vibrato.com.au>"
+LABEL maintainer="Tristan Morgan <tristan.morgan@servian.com>"
 LABEL Description="HTTPS_ECHO, echo url and redirect http to https"
 EXPOSE 80
 WORKDIR /
